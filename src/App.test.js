@@ -28,11 +28,11 @@ global.fetch = jest.fn(() =>
 );
 
 
-describe('app', () => {
-  it('it should display the loading message', async() => {
-    await act(async() => render(<App/>));
 
-    expect(screen.getByText("Front end developer")).toBeInTheDocument();
-  });
+test('it should display the loading message', async() => {
+  await act(async() => render(<App/>));
+
+  expect(screen.getByText("Front end developer")).toBeInTheDocument();
 });
+
 
