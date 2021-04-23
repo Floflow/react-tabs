@@ -24,7 +24,7 @@ function App() {
   if (loading) {
     return (
       <section className="section loading">
-        <h1>Loading...</h1>
+        <h1 data-testid="loading">Loading...</h1>
       </section>
     )
   }
@@ -32,7 +32,7 @@ function App() {
   return (
     <section className="section">
       <div className="title">
-        <h2>experience</h2>
+        <h2 data-testid="header">experiences</h2>
         <div className="underline"></div>
       </div>
       <div className="jobs-center">

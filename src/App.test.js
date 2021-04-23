@@ -3,7 +3,6 @@ import { render, act, screen } from "@testing-library/react";
 import App from './App';
 import "@testing-library/jest-dom/extend-expect";
 
-
 global.fetch = jest.fn(() =>
   Promise.resolve({
     json: () =>
@@ -28,11 +27,19 @@ global.fetch = jest.fn(() =>
 );
 
 
-
-test('it should display the loading message', async() => {
+beforeEach(async()=>{
   await act(async() => render(<App/>));
+})
+
+test('Should fetch the data', () => {
 
   expect(screen.getByText("Front end developer")).toBeInTheDocument();
+});
+
+test('Header renders with correct text', () => {
+  const headerEl = screen.getByTestId("header");
+
+  expect(headerEl.textContent).toBe('experiences')
 });
 
 
