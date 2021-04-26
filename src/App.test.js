@@ -33,7 +33,8 @@ beforeEach(async()=>{
 test('Should fetch the data', () => {
 
   expect(global.fetch).toHaveBeenCalledTimes(1);
-  expect(screen.getByText("Front-end developer")).toBeInTheDocument();
+  screen.getByText('experiences');
+  screen.getByText('Front-end developer');
 });
 
 test('Header renders with correct text', () => {
@@ -41,6 +42,7 @@ test('Header renders with correct text', () => {
 
   expect(headerEl.textContent).toBe('experiences')
 });
+
 test('If I click on the Google experience button on the left, I should see its description',()=>{
   const experienceButtonEl = screen.getByText('Google');
 
