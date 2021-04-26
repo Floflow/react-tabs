@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act, screen } from "@testing-library/react";
+import { render, act, screen, fireEvent } from "@testing-library/react";
 import App from './App';
 import "@testing-library/jest-dom/extend-expect";
 
@@ -9,7 +9,7 @@ global.fetch = jest.fn(() =>
       Promise.resolve([{
         id: "123",
         order: 1,
-        title: "Front end developer",
+        title: "Front-end developer",
         dates: "December-until now",
         duties: ['Hello','You', 'Me'],
         company: "Apple"
@@ -17,7 +17,7 @@ global.fetch = jest.fn(() =>
       {
         id: "124",
         order: 2,
-        title: "Back end developer",
+        title: "Back-end developer",
         dates: "February - December",
         duties: ['This is','Me', 'Again'],
         company: "Google"
@@ -26,14 +26,14 @@ global.fetch = jest.fn(() =>
   })
 );
 
-
 beforeEach(async()=>{
   await act(async() => render(<App/>));
 })
 
 test('Should fetch the data', () => {
 
-  expect(screen.getByText("Front end developer")).toBeInTheDocument();
+  expect(global.fetch).toHaveBeenCalledTimes(1);
+  expect(screen.getByText("Front-end developer")).toBeInTheDocument();
 });
 
 test('Header renders with correct text', () => {
@@ -41,5 +41,14 @@ test('Header renders with correct text', () => {
 
   expect(headerEl.textContent).toBe('experiences')
 });
+test('If I click on the Google experience button on the left, I should see its description',()=>{
+  const experienceButtonEl = screen.getByText('Google');
+
+  fireEvent.click(experienceButtonEl);
+
+  screen.getByText('Back-end developer');
+  screen.getByText('February - December');
+  screen.getByText('This is');
+})
 
 
