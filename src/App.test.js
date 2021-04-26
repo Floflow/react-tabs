@@ -21,6 +21,14 @@ global.fetch = jest.fn(() =>
         dates: "February - December",
         duties: ['This is','Me', 'Again'],
         company: "Google"
+      },
+      {
+        id: "125",
+        order: 3,
+        title: "Engineering Intern",
+        dates: "June - February",
+        duties: ['This is','Me', 'Again'],
+        company: "Facebook"
       }
       ]),
   })
