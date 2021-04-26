@@ -51,12 +51,18 @@ test('Header renders with correct text', () => {
   expect(headerEl.textContent).toBe('experiences')
 });
 
+<<<<<<< HEAD
 test('If I click on the Google experience button on the left, I should see its description',()=>{
   const experienceGoogleButtonEl = screen.getByText('Google');
   const experienceFacebookButtonEl = screen.getByText('Facebook');
+=======
+test('If I click on the Google experience button, its clasName should be active-btn and I should see its description',()=>{
+  const experienceButtonEl = screen.getByText('Google');
+>>>>>>> da043a222f226c3c845b51d64f87bd6898cda925
 
   fireEvent.click(experienceGoogleButtonEl);
 
+  expect(experienceButtonEl.className).toBe('job-btn active-btn');
   screen.getByText('Back-end developer');
   screen.getByText('February - December');
   screen.getByText('This is');
