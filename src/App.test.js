@@ -42,7 +42,7 @@ test('Header renders with correct text', () => {
   expect(headerEl.textContent).toBe('experiences')
 });
 
-test('If I click on the Google experience button on the left, I should see its description',()=>{
+test('If I click on the Google experience button, I should see its description',()=>{
   const experienceButtonEl = screen.getByText('Google');
 
   fireEvent.click(experienceButtonEl);
