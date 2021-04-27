@@ -46,11 +46,16 @@ test('Should fetch the data', () => {
 });
 
 test('Header renders with correct text', () => {
-  const headerEl = screen.getByTestId("header");
+  const headerEl = screen.getByTestId('header');
 
   expect(headerEl.textContent).toBe('experiences')
 });
 
+test('Button renders with correct text', () => {
+  const headerEl = screen.getByTestId('button');
+
+  expect(headerEl.textContent).toBe('more info')
+});
 
 test('If I click on the experience on the left, its clasName should be active-btn and I should see its description',()=>{
   const experienceGoogleButtonEl = screen.getByText('Google');
