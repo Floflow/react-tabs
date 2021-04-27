@@ -11,11 +11,11 @@ function App() {
     try{
       const reponse = await fetch(url);
       const newJobs = await reponse.json();
-      setJobs(newJobs)
-      setLoading(false)
-    } catch(e){
+      setJobs(newJobs);
+      setLoading(false);
+    }catch(e){
       console.log('did not work');
-      setLoading(false)
+      setLoading(false);
     }
   }
   useEffect(() => {

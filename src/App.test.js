@@ -52,7 +52,7 @@ test('Header renders with correct text', () => {
 });
 
 
-test('If I click on the Google experience button, its clasName should be active-btn and I should see its description',()=>{
+test('If I click on the experience on the left, its clasName should be active-btn and I should see its description',()=>{
   const experienceGoogleButtonEl = screen.getByText('Google');
   const experienceFacebookButtonEl = screen.getByText('Facebook');
 
@@ -69,6 +69,15 @@ test('If I click on the Google experience button, its clasName should be active-
   screen.getByText('Engineering Intern');
   screen.getByText('June - February');
   screen.getByText('Good afternoon');
+
+  const experienceAppleButtonEl = screen.getByText('Apple');
+
+  fireEvent.click(experienceAppleButtonEl);
+
+  expect(experienceAppleButtonEl.className).toBe('job-btn active-btn');
+  screen.getByText('Front-end developer');
+  screen.getByText('December-until now');
+  screen.getByText('Hello');
 })
 
 
